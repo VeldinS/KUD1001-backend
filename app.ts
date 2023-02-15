@@ -31,7 +31,7 @@ app.use('/', notificationsRoutes); // route to NOTIFICATIONS
 
 //CONNECTING TO DATABASE
 mongoose
-    .connect('mongodb+srv://veldin:V3ldin123@cluster0.kai58d9.mongodb.net/KUD?retryWrites=true&w=majority')
+    .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kai58d9.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
     .then(() => {
         app.listen(5000);
         console.log('Connected to database')
